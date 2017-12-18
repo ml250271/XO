@@ -1,6 +1,6 @@
 $(document).ready(function() {
         var cells;
-
+        var movesVal = [];
         function refresh() {
             $("#playground").empty("table");
             var table = $("<table>")
@@ -16,6 +16,20 @@ $(document).ready(function() {
                     $("#result").text("You've clicked on cell number " + $(this).attr("id").split("_")[1] + ".");
                 })
                 table.append(tr.append(td));
+                
+                  
+                
+                var tdid;
+                td.click(function() {
+                    
+                    tdid = $(this).attr("id").split("_")[1];
+                    var cell = Number(tdid) + 1;
+                    movesVal.push(cell);                 
+                                    
+                    console.log(movesVal);
+                    
+                    
+                })
             });
             $("#playground").append(table);
         }
@@ -24,7 +38,9 @@ $(document).ready(function() {
             cells = ["", "", "", "", "", "", "", "", ""];
             refresh();
         })
-
+        
+     
+    
     })
 
 
