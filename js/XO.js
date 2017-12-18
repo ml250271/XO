@@ -1,6 +1,7 @@
 $(document).ready(function() {
         var cells;
-        var movesVal = [];
+        var history = [];
+        
         function refresh() {
             $("#playground").empty("table");
             var table = $("<table>")
@@ -23,14 +24,15 @@ $(document).ready(function() {
                 td.click(function() {
                     
                     tdid = $(this).attr("id").split("_")[1];
-                    var cell = Number(tdid) + 1;
-                    movesVal.push(cell);                 
-                    console.log(movesVal);
+                    var cellId = Number(tdid) + 1;
+                    history.push(cellId);                 
+                    console.log(history);
                  if ( i % 2 == 0 ) {
                         $(this).text("X");
                     } else {
                         $(this).text("O");
                     }
+                    
                                       
                 })
             });
@@ -41,9 +43,13 @@ $(document).ready(function() {
         $("#start").click(function() {
             cells = ["", "", "", "", "", "", "", "", ""];
             refresh();
+            clearHistory();
         })
         
-     
+        function clearHistory() {
+    
+             history = [];
+}
     
     })
 
