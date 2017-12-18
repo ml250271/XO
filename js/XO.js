@@ -25,13 +25,17 @@ $(document).ready(function() {
                     tdid = $(this).attr("id").split("_")[1];
                     var cell = Number(tdid) + 1;
                     movesVal.push(cell);                 
-                                    
                     console.log(movesVal);
-                    
-                    
+                 if ( i % 2 == 0 ) {
+                        $(this).text("X");
+                    } else {
+                        $(this).text("O");
+                    }
+                                      
                 })
             });
             $("#playground").append(table);
+            
         }
 
         $("#start").click(function() {
